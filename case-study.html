@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">Vaka Çalışması — CKR TECH</title>
+    <meta name="description" id="pageDesc" content="CKR TECH proje vaka çalışmaları: strateji, uygulama ve sonuçlar.">
+    <meta name="author" content="CKR TECH">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" id="pageCanonical" href="https://ckrtech.com/case-study.html">
+    <link rel="alternate" type="application/rss+xml" title="CKR TECH Blog RSS Feed" href="https://ckrtech.com/feed.xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="CKR TECH">
+    <meta property="og:image" content="https://ckrtech.com/assets/og-cover.jpg">
+    <meta property="og:locale" content="tr_TR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://ckrtech.com/assets/og-cover.jpg">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#0a0a0a">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="author" href="/humans.txt">
+    <!-- Mobil CMD+K Gizleme -->
+    <style>
+        @media (max-width: 768px) {
+            .nav-kbd,
+            .cmd-palette,
+            .cmd-palette-backdrop,
+            .cmd-palette-modal {
+                display: none !important;
+                visibility: hidden !important;
+                pointer-events: none !important;
+            }
+        }
+    </style>
+    <!-- Vaka çalışması detay ek stilleri -->
+    <style>
+        .article-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            transition: color 0.2s;
+        }
+        .article-back:hover { color: var(--accent); }
+        .article-back-arrow { transition: transform 0.2s; }
+        .article-back:hover .article-back-arrow { transform: translateX(-3px); }
+
+        .article-tag {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent);
+            background: var(--accent-soft);
+            border: 1px solid var(--accent-border);
+            border-radius: 4px;
+            padding: 0.2rem 0.6rem;
+        }
+
+        .article-reading-time,
+        .article-date {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .author-name {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+        .author-role {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .article-share {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+        .article-share-label {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        .share-btn {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            padding: 0.4rem 0.9rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            background: transparent;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .share-btn:hover {
+            border-color: var(--accent-border);
+            color: var(--accent);
+            background: var(--accent-soft);
+        }
+
+        .related-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            transition: var(--transition-slow);
+            display: block;
+            text-decoration: none;
+        }
+        .related-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-3px);
+        }
+        .related-card-tag {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+        .related-card-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1.4;
+            margin-bottom: 0.75rem;
+            transition: color 0.2s;
+        }
+        .related-card:hover .related-card-title { color: var(--accent); }
+        .related-card-link {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent);
+        }
+        .related-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+        @media (min-width: 640px) { .related-grid { grid-template-columns: repeat(2, 1fr); } }
+
+        .related-posts {
+            margin-top: 4rem;
+        }
+        .related-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .not-found-msg {
+            text-align: center;
+            padding: 6rem 0;
+            color: var(--text-muted);
+        }
+        .not-found-msg h1 { font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-primary); }
+
+        .article-layout {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 9rem 24px 5rem;
+        }
+        @media (min-width: 768px) { .article-layout { padding: 9rem 32px 5rem; } }
+
+        /* Vaka çalışması özel bileşenler */
+        .case-meta-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 1.5rem 0 2.5rem;
+            padding: 1.25rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--bg-card);
+        }
+        @media (min-width: 640px) { .case-meta-grid { grid-template-columns: repeat(4, 1fr); } }
+        .case-meta-item .case-meta-label {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 0.3rem;
+        }
+        .case-meta-item .case-meta-value {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .case-results-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        @media (min-width: 640px) { .case-results-grid { grid-template-columns: repeat(3, 1fr); } }
+        .case-result-card {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.25rem;
+            text-align: center;
+            background: var(--bg-card);
+        }
+        .case-result-value {
+            font-family: var(--font-mono);
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 0.3rem;
+        }
+        .case-result-label {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .case-quote {
+            border-left: 3px solid var(--accent);
+            padding: 1rem 1.5rem;
+            margin: 2rem 0;
+            font-size: 1rem;
+            font-style: italic;
+            color: var(--text-secondary);
+            background: var(--bg-card);
+            border-radius: 0 8px 8px 0;
+        }
+        .case-quote-author {
+            display: block;
+            margin-top: 0.75rem;
+            font-style: normal;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .case-cta-box {
+            margin-top: 3rem;
+            padding: 2rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--bg-card);
+            text-align: center;
+        }
+        .case-cta-box h2 { margin-top: 0; }
+    </style>
+</head>
+<body>
+
+<div class="loading-screen" id="loadingScreen">
+        <div class="loading-logo">
+            <span class="loading-logo-accent">CKR</span> TECH
+        </div>
+        <div class="loading-bar">
+            <div class="loading-bar-fill"></div>
+        </div>
+    </div>
+
+    <div class="grain-overlay"></div>
+    <div class="reading-progress" id="readingProgress"></div>
+
+    <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Çerez izni">
+        <div class="cookie-content">
+            <p class="cookie-text">
+                Sitemizi daha iyi deneyim sunmak için çerezleri kullanıyoruz.
+                <a href="privacy-policy.html#cookies" class="cookie-link">Çerez Politikası</a>'nı inceleyebilirsiniz.
+            </p>
+            <div class="cookie-actions">
+                <button class="btn btn-secondary btn-sm" id="cookieReject">Reddet</button>
+                <button class="btn btn-primary btn-sm" id="cookieAccept">Kabul Et</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="cmd-palette" id="cmdPalette" role="dialog" aria-modal="true" aria-labelledby="cmdTitle" hidden>
+        <div class="cmd-palette-backdrop" id="cmdBackdrop"></div>
+        <div class="cmd-palette-modal">
+            <div class="cmd-palette-header">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" class="cmd-palette-input" id="cmdInput" placeholder="Komut veya bölüm ara..." autocomplete="off">
+                <kbd class="cmd-kbd">ESC</kbd>
+            </div>
+            <div class="cmd-palette-body" id="cmdBody">
+                <div class="cmd-group">
+                    <span class="cmd-group-label">Navigasyon</span>
+                    <button class="cmd-item" data-action="navigate" data-url="case-studies.html"><span class="cmd-icon">→</span><span class="cmd-text">Vaka Çalışmaları</span><span class="cmd-hint">case-studies.html</span></button><button class="cmd-item" data-action="navigate" data-url="glossary.html"><span class="cmd-icon">→</span><span class="cmd-text">Terimler Sözlüğü</span><span class="cmd-hint">glossary.html</span></button>
+                    <button class="cmd-item" data-action="navigate" data-url="index.html"><span class="cmd-icon">→</span><span class="cmd-text">Ana Sayfa</span><span class="cmd-hint">index.html</span></button>
+                    <button class="cmd-item" data-action="navigate" data-url="index.html#contact"><span class="cmd-icon">→</span><span class="cmd-text">İletişim</span><span class="cmd-hint">#contact</span></button>
+                </div>
+                <div class="cmd-group">
+                    <span class="cmd-group-label">Eylem</span>
+                    <button class="cmd-item" data-action="email"><span class="cmd-icon">✉</span><span class="cmd-text">E-posta Gönder</span><span class="cmd-hint">hello@ckrtech.com</span></button>
+                    <button class="cmd-item" data-action="copy"><span class="cmd-icon">📋</span><span class="cmd-text">E-posta Adresini Kopyala</span><span class="cmd-hint">Clipboard</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header class="site-header" id="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-text">CKR</span><span class="logo-accent">TECH</span>
+            </a>
+            <nav class="main-nav" id="mainNav">
+                <a href="index.html#services" class="nav-link">Hizmetler</a>
+                <a href="index.html#portfolio" class="nav-link">Portfolyo</a>
+                <a href="index.html#pricing" class="nav-link">Fiyatlandırma</a>
+                <a href="insights.html" class="nav-link">Blog</a>
+                <a href="index.html#contact" class="nav-link nav-link--cta">İletişim</a>
+                <button class="nav-kbd" id="navKbdTrigger" aria-label="Komut paleti aç"><kbd>⌘</kbd><kbd>K</kbd></button>
+            </nav>
+            <button class="menu-toggle" id="menuToggle" aria-label="Menü">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main id="articleMain">
+        <!-- İçerik JS tarafından buraya render edilir -->
+    </main>
+
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-layout">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <span class="logo-text">CKR</span><span class="logo-accent">TECH</span>
+                    </a>
+                    <p class="footer-copy">Dijital teknoloji, yazılım ve strateji ajansı. Akhisar'dan globale.</p>
+                    <div class="footer-social">
+                        <a href="https://instagram.com/ckr.tech" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Instagram">Instagram</a>
+                        <a href="https://wa.me/905346921987" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="WhatsApp">WhatsApp</a>
+                    </div>
+                </div>
+                <div class="footer-columns">
+                    <div class="footer-column">
+                        <h4 class="footer-column-title">Hizmetler</h4>
+                        <nav class="footer-nav">
+                            <a href="web-gelistirme.html" class="footer-link">Web Geliştirme</a>
+                            <a href="seo-analitik.html" class="footer-link">SEO & Analitik</a>
+                            <a href="dijital-medya.html" class="footer-link">Dijital Medya</a>
+                        </nav>
+                    </div>
+                    <div class="footer-column">
+                        <h4 class="footer-column-title">Şirket</h4>
+                        <nav class="footer-nav">
+                            <a href="index.html#vision" class="footer-link">Hakkımızda</a>
+                            <a href="insights.html" class="footer-link">Blog</a>
+                            <a href="case-studies.html" class="footer-link">Vaka Çalışmaları</a>
+                            <a href="glossary.html" class="footer-link">Terimler Sözlüğü</a>
+                            <a href="career.html" class="footer-link">Kariyer</a>
+                        </nav>
+                    </div>
+                    <div class="footer-column">
+                        <h4 class="footer-column-title">Yasal</h4>
+                        <nav class="footer-nav">
+                            <a href="privacy-policy.html" class="footer-link">Gizlilik Politikası</a>
+                            <a href="terms.html" class="footer-link">Yasal Bilgilendirme (KVKK &amp; Kullanım Koşulları)</a>
+                            <a href="privacy-policy.html#cookies" class="footer-link">Çerez Politikası</a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span class="footer-copyright">© 2026 CKR TECH. Tüm hakları saklıdır.</span>
+                <span class="footer-location">Akhisar, Manisa — TR</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+    // ============================================
+    // VAKA ÇALIŞMASI VERİ KATMANI
+    // Yeni vaka eklemek için bu diziye bir obje ekleyin
+    // ============================================
+    const CASES = [
+        {
+            slug: 'oz-unlu-yangin',
+            tag: 'Web & SEO',
+            date: '20 Mayıs 2026',
+            title: 'Öz Ünlü Yangın: Dijital Dönüşüm ve SEO ile Görünürlük Artışı',
+            excerpt: 'Yangın güvenlik ekipmanları sektöründe faaliyet gösteren Öz Ünlü Yangın için kurumsal web sitesi yenileme ve teknik SEO çalışması.',
+            client: 'Öz Ünlü Yangın',
+            sector: 'Yangın Güvenliği Ekipmanları',
+            services: 'Web Geliştirme, Teknik SEO',
+            duration: '6 Hafta',
+            authorInitials: 'CK',
+            authorName: 'CKR TECH Ekibi',
+            authorRole: 'Web & SEO Ekibi',
+            authorBg: 'linear-gradient(135deg, #00d4ff, #8b5cf6)',
+            results: [
+                { value: '+180%', label: 'Organik Trafik (3 Ay)' },
+                { value: '0.9s', label: 'Ortalama Sayfa Yükleme' },
+                { value: '12', label: 'İlk Sayfa Anahtar Kelime' }
+            ],
+            content: `
+                <h2>Müşteri ve İhtiyaç</h2>
+                <p>Öz Ünlü Yangın, yangın söndürme ve güvenlik ekipmanları üreten ve Manisa bölgesinde hizmet veren köklü bir firma. Mevcut web siteleri eski bir altyapı üzerinde çalışıyordu: mobil uyumluluğu zayıftı, sayfa yükleme süreleri yüksekti ve arama motorlarında neredeyse hiç görünürlüğü yoktu.</p>
+                <p>Hedef basitti: potansiyel kurumsal müşterilerin Google'da "yangın söndürme tüpü dolum Manisa" veya benzer aramalar yaptığında bulunabilir, profesyonel ve hızlı bir web sitesi.</p>
+
+                <h2>Strateji</h2>
+                <p>Projeye önce bir teknik denetimle başladık. Mevcut sitenin Core Web Vitals skorları, mobil kullanılabilirlik sorunları ve indekslenme durumu incelendi. Bulgular doğrultusunda üç ana başlıkta çalışma planlandı:</p>
+                <ul>
+                    <li><strong>Yeniden tasarım:</strong> Modern, hızlı yüklenen ve mobil öncelikli bir tasarım dili.</li>
+                    <li><strong>Teknik SEO temizliği:</strong> Sitemap, structured data, meta etiketler ve dahili link yapısının yeniden kurulması.</li>
+                    <li><strong>Yerel SEO:</strong> Google İşletme Profili optimizasyonu ve bölgesel anahtar kelime hedeflemesi.</li>
+                </ul>
+
+                <h2>Uygulama</h2>
+                <p>Site, performans odaklı modern bir frontend altyapısıyla yeniden kuruldu. Görsel optimizasyonu, lazy loading ve minimal JavaScript kullanımıyla sayfa yükleme süresi ciddi ölçüde iyileştirildi. Her ürün kategorisi için ayrı, anahtar kelime odaklı sayfalar oluşturuldu ve JSON-LD ile yapılandırılmış veri eklendi.</p>
+                <p>Yerel SEO tarafında, Google İşletme Profili tam olarak dolduruldu, NAP (isim, adres, telefon) bilgileri site genelinde tutarlı hale getirildi ve bölgesel anahtar kelimeler içerik stratejisine entegre edildi.</p>
+
+                <blockquote>Yeni sitemiz hem müşterilerimize daha profesyonel bir görüntü sunuyor hem de artık telefon aramalarımızın önemli bir kısmı doğrudan Google aramasından geliyor.</blockquote>
+
+                <h2>Sonuçlar</h2>
+                <p>Lansmandan sonraki üç ay içinde organik trafik belirgin şekilde arttı, sayfa yükleme süresi 3 saniyenin üzerinden 1 saniyenin altına indi ve hedeflenen anahtar kelimelerin önemli bir kısmı Google'ın ilk sayfasına yerleşti. En önemlisi, sitedeki iletişim formundan gelen taleplerde gözle görülür bir artış yaşandı.</p>
+
+                <h2>Öğrenilen Dersler</h2>
+                <p>Bu proje, teknik SEO ve performans optimizasyonunun yerel işletmeler için ne kadar kritik olduğunu bir kez daha gösterdi. Görsel tasarım önemli, ama arama motorlarının siteyi nasıl "gördüğü" çoğu zaman sonucu belirleyen asıl faktör.</p>
+            `,
+            related: ['demet-kostum', 'koyunlu-elektrik']
+        },
+        {
+            slug: 'bahar-yapi-dekorasyon',
+            tag: 'Marka Kimliği',
+            date: '10 Mart 2026',
+            title: 'Bahar Yapı Dekorasyon: Kurumsal Kimlik ve Sosyal Medya Tasarımı',
+            excerpt: 'Bahar Yapı Dekorasyon için sıfırdan kurumsal logo tasarımı ve tutarlı bir sosyal medya görsel kimliği oluşturuldu.',
+            client: 'Bahar Yapı Dekorasyon',
+            sector: 'İç Mekan Dekorasyon ve Yapı Malzemeleri',
+            services: 'Marka Kimliği, Sosyal Medya Tasarımı',
+            duration: '3 Hafta',
+            authorInitials: 'CK',
+            authorName: 'CKR TECH Ekibi',
+            authorRole: 'Tasarım Ekibi',
+            authorBg: 'linear-gradient(135deg, #f59e0b, #ef4444)',
+            results: [
+                { value: '1', label: 'Yeni Kurumsal Logo' },
+                { value: '20+', label: 'Sosyal Medya Şablonu' },
+                { value: '%100', label: 'Marka Tutarlılığı' }
+            ],
+            content: `
+                <h2>Müşteri ve İhtiyaç</h2>
+                <p>Bahar Yapı Dekorasyon, iç mekan dekorasyon ürünleri ve yapı malzemeleri satışı yapan, büyüyen bir aile şirketi. Şirketin kurumsal bir logosu yoktu ve sosyal medya hesaplarında tutarlı bir görsel dil bulunmuyordu — her paylaşım farklı bir tasarım yaklaşımıyla yapılıyordu.</p>
+                <p>Talep açıktı: modern, sektöre uygun bir logo ve bu logo etrafında kurulu, sosyal medyada kolayca tekrarlanabilir bir görsel kimlik sistemi.</p>
+
+                <h2>Strateji</h2>
+                <p>Önce marka kişiliği üzerine kısa bir çalışma yapıldı: Bahar Yapı Dekorasyon'un hedef kitlesi, ton ve rekabet konumu belirlendi. Buradan çıkan "sıcak, modern, güvenilir" marka kişiliği, tüm tasarım kararlarının referans noktası oldu.</p>
+                <ul>
+                    <li><strong>Logo tasarımı:</strong> Hem dijital hem basılı kullanıma uygun, ölçeklenebilir bir logo sistemi.</li>
+                    <li><strong>Renk paleti ve tipografi:</strong> Markanın sıcak ama profesyonel kimliğini yansıtan tutarlı bir görsel sistem.</li>
+                    <li><strong>Sosyal medya şablonları:</strong> Ürün tanıtımı, kampanya ve bilgilendirme paylaşımları için tekrar kullanılabilir tasarım şablonları.</li>
+                </ul>
+
+                <h2>Uygulama</h2>
+                <p>Logo çalışmasında birden fazla konsept üretildi ve müşteriyle birlikte değerlendirildi. Seçilen konsept, farklı kullanım senaryoları (sosyal medya profil fotoğrafı, tabela, kartvizit, ürün etiketleri) için optimize edildi.</p>
+                <p>Ardından, Instagram ve Facebook paylaşımları için modüler bir şablon seti hazırlandı. Bu şablonlar sayesinde işletme, kendi ekibiyle bile marka tutarlılığını koruyarak düzenli içerik üretebilir hale geldi.</p>
+
+                <h2>Sonuçlar</h2>
+                <p>Yeni kimlik, kısa sürede tüm dijital ve basılı materyallere uygulandı. Sosyal medya hesapları artık tek bir markaya ait gibi görünüyor ve paylaşım hazırlama süresi önemli ölçüde kısaldı çünkü ekip artık sıfırdan tasarım yapmak zorunda değil.</p>
+
+                <h2>Öğrenilen Dersler</h2>
+                <p>Küçük ve orta ölçekli işletmeler için marka kimliği genellikle "lüks" bir yatırım olarak görülüyor, ama tutarlı bir görsel kimlik, günlük operasyonel verimliliği de doğrudan etkiliyor — özellikle sosyal medya içerik üretiminde.</p>
+            `,
+            related: ['oz-unlu-yangin', 'demet-kostum']
+        },
+        {
+            slug: 'demet-kostum',
+            tag: 'E-Ticaret / Web',
+            date: '05 Şubat 2026',
+            title: 'Demet Kostüm: İçerik Stratejisi ile Organik Büyüme',
+            excerpt: 'Demet Kostüm için yeni web sitesi ve kullanıcı odaklı içerik stratejisiyle organik ziyaretçi sayısında sürdürülebilir büyüme sağlandı.',
+            client: 'Demet Kostüm',
+            sector: 'Kostüm ve Tekstil Perakende',
+            services: 'Web Geliştirme, İçerik Stratejisi',
+            duration: '8 Hafta',
+            authorInitials: 'CK',
+            authorName: 'CKR TECH Ekibi',
+            authorRole: 'İçerik & Web Ekibi',
+            authorBg: 'linear-gradient(135deg, #10b981, #06b6d4)',
+            results: [
+                { value: '+95%', label: 'Organik Ziyaretçi (6 Ay)' },
+                { value: '24', label: 'Yeni İçerik Sayfası' },
+                { value: '-40%', label: 'Hemen Çıkma Oranı' }
+            ],
+            content: `
+                <h2>Müşteri ve İhtiyaç</h2>
+                <p>Demet Kostüm, özel gün ve etkinlik kostümleri satan bir e-ticaret işletmesi. Mevcut siteleri ürünleri sergiliyordu ama herhangi bir içerik stratejisi yoktu; ziyaretçiler büyük oranda yalnızca marka adıyla arama yapanlardan geliyordu.</p>
+                <p>Hedef, sitenin sadece bir "katalog" olmaktan çıkıp, hedef kitlenin arama davranışına cevap veren bir kaynak haline gelmesiydi — örneğin "çocuk doğum günü kostüm önerileri" gibi aramalarda görünür olmak.</p>
+
+                <h2>Strateji</h2>
+                <p>Çalışma iki paralel hat üzerinde kuruldu:</p>
+                <ul>
+                    <li><strong>Web sitesi yenileme:</strong> Ürün sayfalarının yapısı, filtreleme ve kategori mimarisi kullanıcı yolculuğuna göre yeniden tasarlandı.</li>
+                    <li><strong>İçerik stratejisi:</strong> Hedef kitlenin arama niyetine göre bir içerik takvimi oluşturuldu — kostüm seçim rehberleri, etkinlik temalı öneri listeleri, bakım ve saklama ipuçları gibi.</li>
+                </ul>
+                <p>Her içerik parçası, belirli bir arama niyetine (bilgi edinme, karşılaştırma, satın alma) hizmet edecek şekilde planlandı.</p>
+
+                <h2>Uygulama</h2>
+                <p>Web sitesi tarafında, ürün kategorileri kullanıcıların gerçek arama alışkanlıklarına göre yeniden organize edildi. İlgili ürünler ve içerik sayfaları arasında dahili linkleme stratejisi kuruldu, böylece bir kostüm seçim rehberini okuyan ziyaretçi doğrudan ilgili ürün sayfalarına yönlendiriliyor.</p>
+                <p>İçerik tarafında, ilk üç ayda toplam 24 yeni sayfa yayınlandı. Her sayfa, hedeflenen anahtar kelime etrafında yapılandırıldı ve görsel açıdan ürün fotoğraflarıyla desteklendi.</p>
+
+                <blockquote>Artık sadece markamızı bilen insanlar değil, "ne giysem" diye arayan insanlar da bizi buluyor — ve bu kişiler genellikle daha hazır alıcılar oluyor.</blockquote>
+
+                <h2>Sonuçlar</h2>
+                <p>Altı ay içinde organik ziyaretçi sayısı belirgin şekilde arttı. Yeni içerik sayfaları, ürün sayfalarına önemli miktarda dahili trafik yönlendirdi ve genel hemen çıkma oranı düştü — bu da ziyaretçilerin siteyi daha fazla keşfettiğinin bir göstergesi.</p>
+
+                <h2>Öğrenilen Dersler</h2>
+                <p>E-ticaret sitelerinde içerik stratejisi genellikle ihmal edilir çünkü doğrudan satışla bağlantısı net görünmez. Ancak doğru planlanmış bir içerik yapısı, hem yeni müşteri kazanımında hem de marka güvenilirliğinde uzun vadede ölçülebilir fark yaratıyor.</p>
+            `,
+            related: ['oz-unlu-yangin', 'koyunlu-elektrik']
+        },
+        {
+            slug: 'koyunlu-elektrik',
+            tag: 'Kurumsal Web',
+            date: '15 Ocak 2026',
+            title: 'Koyunlu Elektrik: Hızlı Altyapı ile Dönüşüm Optimizasyonu',
+            excerpt: 'Koyunlu Elektrik için performans odaklı bir kurumsal web sitesi geliştirildi; hızlı yükleme süresi ve gelişmiş UX dönüşüm oranlarını artırdı.',
+            client: 'Koyunlu Elektrik',
+            sector: 'Elektrik Malzemeleri Toptan ve Perakende',
+            services: 'Web Geliştirme, Dönüşüm Optimizasyonu',
+            duration: '5 Hafta',
+            authorInitials: 'CK',
+            authorName: 'CKR TECH Ekibi',
+            authorRole: 'Geliştirme Ekibi',
+            authorBg: 'linear-gradient(135deg, #8b5cf6, #ec4899)',
+            results: [
+                { value: '0.7s', label: 'Sayfa Yükleme Süresi' },
+                { value: '+65%', label: 'Form Dönüşüm Oranı' },
+                { value: '%98', label: 'Core Web Vitals Skoru' }
+            ],
+            content: `
+                <h2>Müşteri ve İhtiyaç</h2>
+                <p>Koyunlu Elektrik, hem bireysel hem kurumsal müşterilere elektrik malzemesi tedarik eden bir toptan/perakende işletmesi. Mevcut web siteleri yavaştı, teklif talep formu kullanıcılar tarafından zor bulunuyordu ve mobil deneyim oldukça zayıftı.</p>
+                <p>İşletmenin temel hedefi, siteyi ziyaret eden potansiyel kurumsal müşterilerin teklif talep formunu doldurma oranını artırmaktı.</p>
+
+                <h2>Strateji</h2>
+                <p>Proje, performans ve dönüşüm optimizasyonu (CRO) odaklı iki ana eksende planlandı:</p>
+                <ul>
+                    <li><strong>Teknik altyapı yenileme:</strong> Modern bir frontend mimarisiyle sayfa yükleme sürelerinin kökten iyileştirilmesi.</li>
+                    <li><strong>Kullanıcı yolculuğu optimizasyonu:</strong> Teklif talep formunun her sayfada görünür ve erişilebilir hale getirilmesi, form adımlarının basitleştirilmesi.</li>
+                </ul>
+
+                <h2>Uygulama</h2>
+                <p>Site, minimal JavaScript yükü ve optimize edilmiş görsellerle yeniden kuruldu. Sayfa yükleme süresi 1 saniyenin altına indirildi. Teklif talep formu, sayfa içinde daha görünür bir konuma alındı ve alan sayısı azaltılarak doldurma süresi kısaltıldı.</p>
+                <p>Ayrıca, ürün kategori sayfalarına "hızlı teklif al" butonları eklendi — kullanıcılar artık ürün incelerken aynı anda teklif talebinde bulunabiliyor.</p>
+
+                <blockquote>Form doldurma oranındaki artış, satış ekibimizin önüne gelen nitelikli taleplerin sayısını doğrudan etkiledi. Site artık bizim için gerçek bir satış kanalı.</blockquote>
+
+                <h2>Sonuçlar</h2>
+                <p>Yeni site, önemli ölçüde daha hızlı yükleniyor ve Core Web Vitals metriklerinde yüksek skorlar elde ediyor. Teklif talep formu doldurma oranında belirgin bir artış gözlendi — bu da daha fazla nitelikli satış fırsatı anlamına geliyor.</p>
+
+                <h2>Öğrenilen Dersler</h2>
+                <p>Bu proje, performans optimizasyonunun sadece "teknik bir ayrıntı" olmadığını, doğrudan iş sonuçlarına yansıyan bir faktör olduğunu açıkça gösterdi. Hızlı bir site, daha fazla kullanıcının formu doldurmaya kadar sabırla ilerlemesini sağlıyor.</p>
+            `,
+            related: ['oz-unlu-yangin', 'demet-kostum']
+        }
+    ];
+
+    // ============================================
+    // RENDER MOTORU
+    // ============================================
+    function getCase(slug) {
+        return CASES.find(c => c.slug === slug) || null;
+    }
+
+    function getRelatedCases(slugs) {
+        return slugs.map(s => CASES.find(c => c.slug === s)).filter(Boolean);
+    }
+
+    function estimateReadTime(html) {
+        const text = html.replace(/<[^>]*>/g, ' ');
+        const words = text.trim().split(/\s+/).length;
+        return Math.ceil(words / 200);
+    }
+
+    function renderCase(item) {
+        const readTime = estimateReadTime(item.content);
+        const related = getRelatedCases(item.related || []);
+
+        // Meta güncelle
+        document.title = item.title + ' — CKR TECH';
+        document.getElementById('pageDesc').setAttribute('content', item.excerpt);
+        document.getElementById('pageCanonical').setAttribute('href', `https://ckrtech.com/case-study.html?slug=${item.slug}`);
+
+        injectCaseStudySchema(item);
+
+        const resultsHTML = item.results.map(r => `
+            <div class="case-result-card">
+                <div class="case-result-value">${r.value}</div>
+                <div class="case-result-label">${r.label}</div>
+            </div>
+        `).join('');
+
+        const relatedHTML = related.length > 0 ? `
+            <div class="related-posts">
+                <h2 class="related-title">İlgili Vaka Çalışmaları</h2>
+                <div class="related-grid">
+                    ${related.map(r => `
+                        <a href="case-study.html?slug=${r.slug}" class="related-card">
+                            <p class="related-card-tag">${r.tag}</p>
+                            <h3 class="related-card-title">${r.title}</h3>
+                            <span class="related-card-link">Devamını Oku →</span>
+                        </a>
+                    `).join('')}
+                </div>
+            </div>
+        ` : '';
+
+        document.getElementById('articleMain').innerHTML = `
+            <div class="article-layout">
+                <a href="case-studies.html" class="article-back">
+                    <span class="article-back-arrow">←</span> Vaka Çalışmalarına Dön
+                </a>
+
+                <article>
+                    <header class="article-header">
+                        <div class="article-meta-row">
+                            <span class="article-tag">${item.tag}</span>
+                            <span class="article-date">${item.date}</span>
+                            <span class="article-reading-time">${readTime} dk okuma</span>
+                        </div>
+
+                        <h1 class="article-title">${item.title}</h1>
+
+                        <div class="case-meta-grid">
+                            <div class="case-meta-item">
+                                <div class="case-meta-label">Müşteri</div>
+                                <div class="case-meta-value">${item.client}</div>
+                            </div>
+                            <div class="case-meta-item">
+                                <div class="case-meta-label">Sektör</div>
+                                <div class="case-meta-value">${item.sector}</div>
+                            </div>
+                            <div class="case-meta-item">
+                                <div class="case-meta-label">Hizmetler</div>
+                                <div class="case-meta-value">${item.services}</div>
+                            </div>
+                            <div class="case-meta-item">
+                                <div class="case-meta-label">Süre</div>
+                                <div class="case-meta-value">${item.duration}</div>
+                            </div>
+                        </div>
+
+                        <div class="case-results-grid">
+                            ${resultsHTML}
+                        </div>
+
+                        <div class="article-author">
+                            <div class="author-avatar" style="background: ${item.authorBg};">${item.authorInitials}</div>
+                            <div>
+                                <p class="author-name">${item.authorName}</p>
+                                <p class="author-role">${item.authorRole}</p>
+                            </div>
+                        </div>
+                    </header>
+
+                    <div class="article-content">
+                        ${item.content}
+                    </div>
+
+                    <div class="case-cta-box">
+                        <h2>Benzer bir projeniz mi var?</h2>
+                        <p>İşletmeniz için strateji, tasarım ve teknolojiyi birleştiren bir çözüm geliştirelim.</p>
+                        <a href="index.html#contact" class="btn btn-primary">İletişime Geç</a>
+                    </div>
+
+                    <div class="article-share">
+                        <span class="article-share-label">Paylaş:</span>
+                        <button class="share-btn" id="copyUrlBtn">Linki Kopyala</button>
+                        <a href="https://wa.me/?text=${encodeURIComponent(item.title + ' — ' + window.location.href)}" target="_blank" rel="noopener noreferrer" class="share-btn">WhatsApp</a>
+                    </div>
+                </article>
+
+                ${relatedHTML}
+            </div>
+        `;
+
+        document.getElementById('copyUrlBtn').addEventListener('click', function() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                this.textContent = 'Kopyalandı ✓';
+                setTimeout(() => { this.textContent = 'Linki Kopyala'; }, 2000);
+            });
+        });
+    }
+
+    // ============================================
+    // DYNAMIC JSON-LD SCHEMA (Article + BreadcrumbList)
+    // ============================================
+    function injectCaseStudySchema(item) {
+        ['dynamic-jsonld', 'breadcrumb-jsonld'].forEach(id => {
+            const existing = document.getElementById(id);
+            if (existing) existing.remove();
+        });
+
+        const dateMap = {
+            'Ocak': '01', 'Şubat': '02', 'Mart': '03', 'Nisan': '04',
+            'Mayıs': '05', 'May': '05', 'Haziran': '06', 'Temmuz': '07',
+            'Ağustos': '08', 'Eylül': '09', 'Ekim': '10', 'Kasım': '11', 'Aralık': '12'
+        };
+        let isoDate = '2026-05-15';
+        const dateParts = item.date.split(' ');
+        if (dateParts.length >= 3) {
+            const day = dateParts[0].padStart(2, '0');
+            const monthName = dateParts[1];
+            const year = dateParts[2];
+            const month = dateMap[monthName] || '05';
+            isoDate = `${year}-${month}-${day}`;
+        }
+
+        const schema = {
+            '@context': 'https://schema.org',
+            '@type': 'Article',
+            'headline': item.title,
+            'description': item.excerpt,
+            'url': `https://ckrtech.com/case-study.html?slug=${item.slug}`,
+            'mainEntityOfPage': {
+                '@type': 'WebPage',
+                '@id': `https://ckrtech.com/case-study.html?slug=${item.slug}`
+            },
+            'datePublished': isoDate,
+            'dateModified': isoDate,
+            'author': {
+                '@type': 'Organization',
+                'name': item.authorName,
+                'url': 'https://ckrtech.com/'
+            },
+            'publisher': {
+                '@type': 'Organization',
+                'name': 'CKR TECH',
+                'url': 'https://ckrtech.com/',
+                'logo': {
+                    '@type': 'ImageObject',
+                    'url': 'https://ckrtech.com/assets/og-cover.jpg'
+                }
+            },
+            'image': {
+                '@type': 'ImageObject',
+                'url': 'https://ckrtech.com/assets/og-cover.jpg',
+                'width': 1200,
+                'height': 630
+            },
+            'articleSection': item.tag,
+            'inLanguage': 'tr',
+            'about': item.client
+        };
+
+        const script = document.createElement('script');
+        script.type = 'application/ld+json';
+        script.id = 'dynamic-jsonld';
+        script.textContent = JSON.stringify(schema);
+        document.head.appendChild(script);
+
+        const breadcrumbSchema = {
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            'itemListElement': [
+                {
+                    '@type': 'ListItem',
+                    'position': 1,
+                    'name': 'Ana Sayfa',
+                    'item': 'https://ckrtech.com/'
+                },
+                {
+                    '@type': 'ListItem',
+                    'position': 2,
+                    'name': 'Vaka Çalışmaları',
+                    'item': 'https://ckrtech.com/case-studies.html'
+                },
+                {
+                    '@type': 'ListItem',
+                    'position': 3,
+                    'name': item.title,
+                    'item': `https://ckrtech.com/case-study.html?slug=${item.slug}`
+                }
+            ]
+        };
+
+        const breadcrumbScript = document.createElement('script');
+        breadcrumbScript.type = 'application/ld+json';
+        breadcrumbScript.id = 'breadcrumb-jsonld';
+        breadcrumbScript.textContent = JSON.stringify(breadcrumbSchema);
+        document.head.appendChild(breadcrumbScript);
+    }
+
+    function renderNotFound() {
+        document.getElementById('articleMain').innerHTML = `
+            <div class="article-layout">
+                <div class="not-found-msg">
+                    <h1>Vaka Çalışması Bulunamadı</h1>
+                    <p style="margin-bottom:2rem;">Aradığınız vaka çalışması mevcut değil veya taşınmış olabilir.</p>
+                    <a href="case-studies.html" class="btn btn-primary">Vaka Çalışmalarına Dön</a>
+                </div>
+            </div>
+        `;
+    }
+
+    // Slug'ı URL'den al
+    const params = new URLSearchParams(window.location.search);
+    const slug = params.get('slug');
+
+    if (slug) {
+        const item = getCase(slug);
+        if (item) {
+            renderCase(item);
+        } else {
+            renderNotFound();
+        }
+    } else {
+        renderCase(CASES[0]);
+    }
+    </script>
+</body>
+</html>

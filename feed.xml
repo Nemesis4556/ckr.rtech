@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CKR TECH — Blog ve Insights</title>
+    <link>https://ckrtech.com/insights.html</link>
+    <description>Teknoloji, web geliştirme, SEO ve dijital strateji üzerine güncel makaleler, rehberler ve ajans notları.</description>
+    <language>tr</language>
+    <copyright>© 2026 CKR TECH. Tüm hakları saklıdır.</copyright>
+    <atom:link href="https://ckrtech.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <lastBuildDate>Fri, 12 Jun 2026 00:00:00 +0300</lastBuildDate>
+
+    <item>
+      <title>Google İşletme Profili Optimizasyonu: Adım Adım Rehber</title>
+      <link>https://ckrtech.com/insight-detail.html?slug=yerel-seo-google-business-rehberi</link>
+      <guid isPermaLink="true">https://ckrtech.com/insight-detail.html?slug=yerel-seo-google-business-rehberi</guid>
+      <description>Yerel aramalarda görünürlüğünüzü artırmak için Google İşletme Profili'nizi nasıl eksiksiz ve etkili hale getireceğinizi adım adım anlatıyoruz.</description>
+      <category>SEO</category>
+      <pubDate>Fri, 12 Jun 2026 00:00:00 +0300</pubDate>
+    </item>
+
+    <item>
+      <title>Next.js vs Astro: Hangi Proje İçin Hangisi?</title>
+      <link>https://ckrtech.com/insight-detail.html?slug=nextjs-vs-astro</link>
+      <guid isPermaLink="true">https://ckrtech.com/insight-detail.html?slug=nextjs-vs-astro</guid>
+      <description>İki popüler framework arasındaki temel farkları, performans etkilerini ve proje tipine göre doğru seçimi karşılaştırdık.</description>
+      <category>Teknik</category>
+      <pubDate>Sat, 06 Jun 2026 00:00:00 +0300</pubDate>
+    </item>
+
+    <item>
+      <title>2026'da KOBİ'ler İçin Kullanılması Gereken 10 Dijital Araç</title>
+      <link>https://ckrtech.com/insight-detail.html?slug=10-dijital-arac-2026</link>
+      <guid isPermaLink="true">https://ckrtech.com/insight-detail.html?slug=10-dijital-arac-2026</guid>
+      <description>Bütçe dostu, kurulumu kolay ve gerçek etki yaratan 10 araçla dijital operasyonlarınızı bir üst seviyeye taşıyın.</description>
+      <category>Strateji</category>
+      <pubDate>Thu, 28 May 2026 00:00:00 +0300</pubDate>
+    </item>
+
+    <item>
+      <title>Next.js 15 ile App Router: Tam Rehber</title>
+      <link>https://ckrtech.com/insight-detail.html?slug=nextjs-15-app-router</link>
+      <guid isPermaLink="true">https://ckrtech.com/insight-detail.html?slug=nextjs-15-app-router</guid>
+      <description>Server Components, Streaming ve Suspense boundary'lerinin gerçek dünya performans etkilerini inceledik.</description>
+      <category>Teknik</category>
+      <pubDate>Fri, 15 May 2026 00:00:00 +0300</pubDate>
+    </item>
+
+    <item>
+      <title>Core Web Vitals ve Sıralama: 2026 Güncellemesi</title>
+      <link>https://ckrtech.com/insight-detail.html?slug=core-web-vitals-2026</link>
+      <guid isPermaLink="true">https://ckrtech.com/insight-detail.html?slug=core-web-vitals-2026</guid>
+      <description>INP metriğinin LCP ve CLS ile birlikte nasıl değerlendirildiğini ve optimize stratejilerini açıklıyoruz.</description>
+      <category>SEO</category>
+      <pubDate>Sat, 02 May 2026 00:00:00 +0300</pubDate>
+    </item>
+
+    <item>
+      <title>Küçük İşletmeler İçin Dijital Dönüşüm Rehberi</title>
+      <link>https://ckrtech.com/insight-detail.html?slug=kucuk-isletmeler-dijital-donusum</link>
+      <guid isPermaLink="true">https://ckrtech.com/insight-detail.html?slug=kucuk-isletmeler-dijital-donusum</guid>
+      <description>Sınırlı bütçeyle maksimum etki yaratan dijital stratejiler ve araç önerileri.</description>
+      <category>Strateji</category>
+      <pubDate>Sat, 18 Apr 2026 00:00:00 +0300</pubDate>
+    </item>
+  </channel>
+</rss>
